@@ -81,7 +81,7 @@ static void init() {
 
 	// Add Window Titlebar Icon
 	titlebar_icon = IMG_Load(mods->locate("images/logo/icon.png").c_str());
-	SDL_WM_SetIcon(titlebar_icon, NULL);
+	//SDL_WM_SetIcon(titlebar_icon, NULL);
 
 	// Create window
 	if (MIN_VIEW_W != -1 && MIN_VIEW_H != -1) {
