@@ -54,14 +54,14 @@ InputState::InputState(void) {
 
 void InputState::defaultQwertyKeyBindings ()
 {
-	binding[CANCEL] = SDLK_ESCAPE;
+	binding[CANCEL] = SDLK_BACKSPACE;
 	binding[ACCEPT] = SDLK_RETURN;
 	binding[UP] = SDLK_w;
 	binding[DOWN] = SDLK_s;
 	binding[LEFT] = SDLK_a;
 	binding[RIGHT] = SDLK_d;
 	
-	binding_alt[CANCEL] = SDLK_ESCAPE;
+	binding_alt[CANCEL] = SDLK_BACKSPACE;
 	binding_alt[ACCEPT] = SDLK_SPACE;
 	binding_alt[UP] = SDLK_UP;
 	binding_alt[DOWN] = SDLK_DOWN;
