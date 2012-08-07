@@ -43,8 +43,8 @@ struct ConfigEntry
 };
 
 ConfigEntry config[] = {
-	{ "fullscreen",       &typeid(FULLSCREEN),      "0",   &FULLSCREEN,      "fullscreen mode. 1 enable, 0 disable."},
-	{ "resolution_w",     &typeid(VIEW_W),          "640", &VIEW_W,          "display resolution. 640x480 minimum."},
+	{ "fullscreen",       &typeid(FULLSCREEN),      "1",   &FULLSCREEN,      "fullscreen mode. 1 enable, 0 disable."},
+	{ "resolution_w",     &typeid(VIEW_W),          "800", &VIEW_W,          "display resolution. 640x480 minimum."},
 	{ "resolution_h",     &typeid(VIEW_H),          "480", &VIEW_H,          NULL},
 	{ "music_volume",     &typeid(MUSIC_VOLUME),    "96",  &MUSIC_VOLUME,    "music and sound volume (0 = silent, 128 = max)"},
 	{ "sound_volume",     &typeid(SOUND_VOLUME),    "128", &SOUND_VOLUME,    NULL},
