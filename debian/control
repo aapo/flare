@@ -1,0 +1,56 @@
+Source: flare
+Section: user/games
+Priority: optional
+Maintainer: Aapo Rantalainen <aapo.rantalainen@gmail.com>
+Build-Depends: libsdl1.2-dev (>= 1.2.5), libsdl-mixer1.2-dev (>= 1.2.6-5+0m5+ogg+mp3-2), 
+ libsdl-image1.2-dev (>= 1.2), libsdl-ttf2.0-dev, cmake
+Standards-Version: 3.8.0
+Homepage: http://flarerpg.org/
+
+Package: flare
+Architecture: any
+Depends: ${shlibs:Depends}, libsdl-mixer1.2 (>= 1.2.6-5+0m5+ogg+mp3-2)
+Description: single-player 2D action RPGs
+ Flare (Free Libre Action Roleplaying Engine) is a simple game engine 
+ built to handle a very specific kind of game: single-player 2D action 
+ RPGs. Flare is not a reimplementation of an existing game or engine. 
+ It is a tribute to and exploration of the action RPG genre.
+XSBC-Bugtracker: https://github.com/clintbellanger/flare/issues
+XB-Maemo-Icon-26:
+ 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

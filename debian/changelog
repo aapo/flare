@@ -1,0 +1,18 @@
+flare (0.16-maemo1) unstable; urgency=low
+
+   * debian packaging
+   * backspace as escape
+   * kp_enter as return
+   * maemo sdl bug fixed
+   * default settings: 800x480 fullscreen
+
+ -- Aapo Rantalainen <aapo.rantalainen@gmail.com>  Tue,  7 Aug 2012 14:17:22 +0300
+
+flare (0.15-maemo1) unstable; urgency=low
+
+   * debian packaging
+   * backspace as escape
+   * default settings: 800x480 fullscreen
+
+ -- Aapo Rantalainen <aapo.rantalainen@gmail.com>  Mon, 21 May 2012 10:59:22 +0300
+
