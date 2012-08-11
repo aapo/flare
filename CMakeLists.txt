@@ -1,9 +1,14 @@
 Project (Flare)
 cmake_minimum_required (VERSION 2.6)
 
-Set (PACKAGE "FLARE")
-Set (VERSION "0.15")
+Set (PACKAGE "\"Flare\"")
+Set (VERSION "\"Alpha v0.16\"")
 
+configure_file(
+  "src/config.h.in"
+  "${PROJECT_BINARY_DIR}/config.h"
+  )
+include_directories("${PROJECT_BINARY_DIR}")
 
 # Default definitions
 if (MSVC)

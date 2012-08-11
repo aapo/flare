@@ -16,6 +16,7 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 */
 
 #include <iostream>
+#include "config.h"
 
 #include "GameStateLoad.h"
 #include "GameStateTitle.h"
@@ -54,7 +55,7 @@ GameStateTitle::GameStateTitle() : GameState() {
 
 	// set up labels
 	label_version = new WidgetLabel();
-	label_version->set(VIEW_W, 0, JUSTIFY_RIGHT, VALIGN_TOP, msg->get("Flare Alpha v0.16"), font->getColor("menu_normal"));
+	label_version->set(VIEW_W, 0, JUSTIFY_RIGHT, VALIGN_TOP, msg->get(PACKAGENAME " " VERSION), font->getColor("menu_normal"));
 }
 
 void GameStateTitle::loadGraphics() {
