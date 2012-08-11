@@ -51,6 +51,7 @@ StatBlock::StatBlock() {
 	flying = false;
 	intangible = false;
 	facing = true;
+	suppress_hp = false;
 
 	// core stats
 	offense_character = defense_character = physical_character = mental_character = 0;
@@ -119,6 +120,9 @@ StatBlock::StatBlock() {
 	wander_ticks = 0;
 	wander_pause_ticks = 0;
 
+	max_spendable_stat_points = 0;
+	max_points_per_stat = 0;
+
 	// xp table
 	// default to MAX_INT
 	for (int i=0; i<MAX_CHARACTER_LEVEL; i++) {
@@ -130,6 +134,7 @@ StatBlock::StatBlock() {
 	while(infile.next()) {
 	    xp_table[atoi(infile.key.c_str()) - 1] = atoi(infile.val.c_str());
 	}
+	max_spendable_stat_points = atoi(infile.key.c_str());
 	infile.close();
 
 	loot_chance = 50;
@@ -150,8 +155,8 @@ StatBlock::StatBlock() {
 	ranged_weapon_power = -1;
 	mental_weapon_power = -1;
 
-	attunement_fire = 100;
-	attunement_ice = 100;
+	vulnerable_fire = 100;
+	vulnerable_ice = 100;
 
 	gold = 0;
 	death_penalty = false;
@@ -340,8 +345,8 @@ void StatBlock::load(const string& filename) {
 			else if (infile.key == "melee_range") melee_range = num;
 			else if (infile.key == "threat_range") threat_range = num;
 
-			else if (infile.key == "attunement_fire") attunement_fire=num;
-			else if (infile.key == "attunement_ice") attunement_ice=num;
+			else if (infile.key == "vulnerable_fire") vulnerable_fire=num;
+			else if (infile.key == "vulnerable_ice") vulnerable_ice=num;
 
 			// animation stats
 			else if (infile.key == "melee_weapon_power") melee_weapon_power = num;
@@ -350,6 +355,9 @@ void StatBlock::load(const string& filename) {
 
 			else if (infile.key == "animations") animations = infile.val;
 			else if (infile.key == "animation_speed") animationSpeed = num;
+
+			// hide enemy HP bar
+			else if (infile.key == "suppress_hp") suppress_hp = num;
 		}
 		infile.close();
 	}
@@ -599,10 +607,12 @@ void StatBlock::loadHeroStats() {
 	FileParser infile;
 	if (infile.open(mods->locate("engine/stats.txt"))) {
 	  while (infile.next()) {
-		infile.val = infile.val + ',';
-		value = eatFirstInt(infile.val, ',');
 
-		if (infile.key == "hp_base") {
+		value = atoi(infile.val.c_str());
+
+		if (infile.key == "max_points_per_stat") {
+			max_points_per_stat = value;
+		} else if (infile.key == "hp_base") {
 			hp_base = value;
 		} else if (infile.key == "hp_per_level") {
 			hp_per_level = value;
@@ -645,6 +655,7 @@ void StatBlock::loadHeroStats() {
 		}
 	  }
 	  infile.close();
+	  if (max_points_per_stat == 0) max_points_per_stat = max_spendable_stat_points / 4 + 1;
 	  statsLoaded = true;
 	} else fprintf(stderr, "Unable to open stats.txt!\n");
 }
