@@ -51,7 +51,7 @@ install: build
 
 	#menu and icon and starting script
 	install -d  ${CURDIR}/debian/flare/usr/share/pixmaps/
-	cp ${CURDIR}/debian/flare.png ${CURDIR}/debian/flare/usr/share/pixmaps/
+	cp ${CURDIR}/debian/icon.png ${CURDIR}/debian/flare/usr/share/pixmaps/
 	rm ${CURDIR}/debian/flare/opt/flare/share/icons/hicolor/scalable/apps/flare.svg 
 	rmdir ${CURDIR}/debian/flare/opt/flare/share/icons/hicolor/scalable/apps/
 	rmdir ${CURDIR}/debian/flare/opt/flare/share/icons/hicolor/scalable/	
@@ -63,8 +63,6 @@ install: build
 	cp ${CURDIR}/debian/flare.desktop ${CURDIR}/debian/flare/usr/share/applications/hildon
 	rm ${CURDIR}/debian/flare/opt/flare/share/applications/flare.desktop 
 	rmdir ${CURDIR}/debian/flare/opt/flare/share/applications/
-	rmdir ${CURDIR}/debian/flare/opt/flare/share/
-	rmdir ${CURDIR}/debian/flare/opt/flare/
 	
 	install -d ${CURDIR}/debian/flare/usr/bin
 	install  ${CURDIR}/debian/flare.sh ${CURDIR}/debian/flare/usr/bin

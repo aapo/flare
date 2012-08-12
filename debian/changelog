@@ -1,3 +1,9 @@
+flare (0.16-maemo2) unstable; urgency=low
+
+   * New code from upstream (turn character when mousebutton is used)
+
+ -- Aapo Rantalainen <aapo.rantalainen@gmail.com>  Sat, 11 Aug 2012 23:20:22 +0300
+
 flare (0.16-maemo1) unstable; urgency=low
 
    * debian packaging
